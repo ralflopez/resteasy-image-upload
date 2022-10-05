@@ -33,11 +33,14 @@ public class HelloResource {
 
                 // Retrieve headers, read the Content-Disposition header to obtain the original name of the file
                 MultivaluedMap<String, String> headers = inputPart.getHeaders();
-                System.out.println(parseFileName(headers));
+                String fn = parseFileName(headers);
+                String mime = getMimeType(headers);
+                System.out.println(fn);
 
                 // Handle the body of that part with an InputStream
                 InputStream istream = inputPart.getBody(InputStream.class,null);
-
+                final byte[] data = istream.readAllBytes();
+                System.out.println(data);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -63,5 +66,9 @@ public class HelloResource {
             }
         }
         return "randomName";
+    }
+
+    private String getMimeType(MultivaluedMap<String, String> headers) {
+        return headers.getFirst("Content-Type");
     }
 }
