@@ -13,6 +13,12 @@ import java.util.Map;
 
 @Path("/hello-world")
 public class HelloResource {
+    @GET
+    @Produces("text/plain")
+    public String getHello() {
+        return "Hello World!";
+    }
+
     @POST
     @Produces("text/plain")
     @Consumes("multipart/form-data")
