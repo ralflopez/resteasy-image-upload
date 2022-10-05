@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="resteasy-image-upload:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>resteasy-image-upload</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="resteasy-image-upload-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="resteasy-image-upload:war exploded" />
+    </root>
+  </artifact>
+</component>
